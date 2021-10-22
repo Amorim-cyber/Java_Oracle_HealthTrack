@@ -8,6 +8,20 @@ public class Peso {
 	private Double valorPeso;
 	private Date registroPeso;
 	private Long idUsuario;
+	
+	public Peso(Long idPeso, Double valorPeso, Date registroPeso, Long idUsuario) {
+		this.idPeso = idPeso;
+		this.valorPeso = valorPeso;
+		this.registroPeso = registroPeso;
+		this.idUsuario = idUsuario;
+	}
+	
+	public Peso(Double valorPeso, Date registroPeso, Long idUsuario) {
+		this.valorPeso = valorPeso;
+		this.registroPeso = registroPeso;
+		this.idUsuario = idUsuario;
+	}
+	
 	public Long getIdPeso() {
 		return idPeso;
 	}
