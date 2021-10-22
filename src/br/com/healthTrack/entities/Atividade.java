@@ -1,4 +1,4 @@
-package br.com.fiap.entities;
+package br.com.healthTrack.entities;
 
 import java.sql.Date;
 
