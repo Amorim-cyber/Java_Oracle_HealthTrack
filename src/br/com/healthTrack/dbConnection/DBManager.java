@@ -11,16 +11,15 @@ public class DBManager {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conexao = DriverManager.getConnection("jdbc:oracle:thin:@docker_oracle-db_1:1522:ORCL","OPS$system","oracle");
+			conexao = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1522:xe","system","oracle");
 			
 		}catch(SQLException e) {
-			System.err.println("Nãofoi possível conectar no Banco deDados");
+			System.err.println("Não foi possível conectar no Banco deDados");
 			e.printStackTrace();
 		}catch(ClassNotFoundException e) {
 			System.err.println("O Driver JDBC não foi encontrado!");
 			e.printStackTrace();
 		}
-		System.out.println("Conectado!");
 		return conexao;
 	}
 
