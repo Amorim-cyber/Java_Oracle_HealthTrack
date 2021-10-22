@@ -8,6 +8,7 @@ public class Alimento {
 	private String nomeAlimento;
 	private Double caloriasAlimento;
 	private Date horaConsumo;
+	private Long idUsuario;
 	
 	public Long getIdAlimento() {
 		return idAlimento;
@@ -33,12 +34,22 @@ public class Alimento {
 	public void setHoraConsumo(Date horaConsumo) {
 		this.horaConsumo = horaConsumo;
 	}
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 	@Override
 	public String toString() {
 		return "Alimento [idAlimento=" + idAlimento + 
 				", nomeAlimento=" + nomeAlimento + 
 				", caloriasAlimento=" + caloriasAlimento + 
-				", horaConsumo=" + horaConsumo + "]";
+				", horaConsumo=" + horaConsumo + 
+				", idUsuario=" + idUsuario + 
+				"]";
 	}
+	
+	
 	
 }
