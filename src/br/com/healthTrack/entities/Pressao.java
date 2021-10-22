@@ -9,6 +9,19 @@ public class Pressao {
 	private Date registroPressao;
 	private Long idUsuario;
 	
+	public Pressao(Long idPressao, Double valorPressao, Date registroPressao, Long idUsuario) {
+		this.idPressao = idPressao;
+		this.valorPressao = valorPressao;
+		this.registroPressao = registroPressao;
+		this.idUsuario = idUsuario;
+	}
+	
+	public Pressao(Double valorPressao, Date registroPressao, Long idUsuario) {
+		this.valorPressao = valorPressao;
+		this.registroPressao = registroPressao;
+		this.idUsuario = idUsuario;
+	}
+	
 	public Long getIdPressao() {
 		return idPressao;
 	}
