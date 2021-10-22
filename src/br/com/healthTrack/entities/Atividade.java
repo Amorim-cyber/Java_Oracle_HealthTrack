@@ -48,11 +48,10 @@ public class Atividade {
 	}
 	@Override
 	public String toString() {
-		return "Atividade [idAtividade=" + idAtividade + 
-				", idUsuario=" + idUsuario + 
-				", idExercicio=" + idExercicio
-				+ ", dataAtividade=" + dataAtividade + 
-				"]";
+		return idAtividade + 
+				"\t" + idUsuario + 
+				"\t" + idExercicio + 
+				"\t" + dataAtividade;
 	}
 	
 	
