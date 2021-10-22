@@ -6,6 +6,20 @@ public class Exercicio {
 	private String nomeExercicio;
 	private Integer setsExercicio;
 	private Integer repeticaoExercicio;
+	
+	public Exercicio(Long idExercicio, String nomeExercicio, Integer setsExercicio, Integer repeticaoExercicio) {
+		this.idExercicio = idExercicio;
+		this.nomeExercicio = nomeExercicio;
+		this.setsExercicio = setsExercicio;
+		this.repeticaoExercicio = repeticaoExercicio;
+	}
+	
+	public Exercicio(String nomeExercicio, Integer setsExercicio, Integer repeticaoExercicio) {
+		this.nomeExercicio = nomeExercicio;
+		this.setsExercicio = setsExercicio;
+		this.repeticaoExercicio = repeticaoExercicio;
+	}
+	
 	public Long getIdExercicio() {
 		return idExercicio;
 	}
