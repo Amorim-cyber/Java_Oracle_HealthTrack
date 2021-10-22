@@ -9,6 +9,19 @@ public class Atividade {
 	private Long idExercicio;
 	private Date dataAtividade;
 	
+	public Atividade(Long idAtividade, Long idUsuario, Long idExercicio, Date dataAtividade) {
+		this.idAtividade = idAtividade;
+		this.idUsuario = idUsuario;
+		this.idExercicio = idExercicio;
+		this.dataAtividade = dataAtividade;
+	}
+	
+	public Atividade(Long idUsuario, Long idExercicio, Date dataAtividade) {
+		this.idUsuario = idUsuario;
+		this.idExercicio = idExercicio;
+		this.dataAtividade = dataAtividade;
+	}
+	
 	public Long getIdAtividade() {
 		return idAtividade;
 	}
