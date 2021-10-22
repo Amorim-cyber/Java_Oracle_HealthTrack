@@ -10,6 +10,21 @@ public class Alimento {
 	private Date horaConsumo;
 	private Long idUsuario;
 	
+	public Alimento(Long idAlimento, String nomeAlimento, Double caloriasAlimento, Date horaConsumo, Long idUsuario) {
+		this.idAlimento = idAlimento;
+		this.nomeAlimento = nomeAlimento;
+		this.caloriasAlimento = caloriasAlimento;
+		this.horaConsumo = horaConsumo;
+		this.idUsuario = idUsuario;
+	}
+	
+	public Alimento(String nomeAlimento, Double caloriasAlimento, Date horaConsumo, Long idUsuario) {
+		this.nomeAlimento = nomeAlimento;
+		this.caloriasAlimento = caloriasAlimento;
+		this.horaConsumo = horaConsumo;
+		this.idUsuario = idUsuario;
+	}
+	
 	public Long getIdAlimento() {
 		return idAlimento;
 	}
