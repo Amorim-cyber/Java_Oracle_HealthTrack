@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 import br.com.healthTrack.entities.dao.AtividadeDAO;
+import br.com.healthTrack.entities.dao.PressaoDAO;
 
 public class Teste {
 
@@ -20,7 +21,9 @@ public class Teste {
 			System.out.println();
 			System.out.println("Digite 1 para fazer 5 registros de atividade");
 			System.out.println("Digite 2 para visualizar registros de atividade");
-			System.out.println("Digite 3 para sair");
+			System.out.println("Digite 3 para fazer 5 registros de pressão");
+			System.out.println("Digite 4 para visualizar registros de pressão");
+			System.out.println("Digite 5 para sair");
 			System.out.println();
 			System.out.print(">>> ");
 			
@@ -48,6 +51,26 @@ public class Teste {
 				}
 				
 				case "3":{
+					PressaoDAO pressaoDAO = new  PressaoDAO();
+					pressaoDAO.insert(93D, Calendar.getInstance(), 2l);
+					pressaoDAO.insert(162D, Calendar.getInstance(), 2l);
+					pressaoDAO.insert(94D, Calendar.getInstance(), 2l);
+					pressaoDAO.insert(109D, Calendar.getInstance(), 1l);
+					pressaoDAO.insert(143D, Calendar.getInstance(), 1l);
+					System.out.println("Linhas adicionadas com sucesso !!!");
+					System.out.println();
+					break;
+				}
+				
+				case "4":{
+					PressaoDAO pressaoDAO = new  PressaoDAO();
+					System.out.println("--------------------REGISTRO DE PRESSÃO---------------------");
+					pressaoDAO.getAll();
+					System.out.println();
+					break;
+				}
+				
+				case "5":{
 					loop = false;
 					System.out.println();
 					break;
