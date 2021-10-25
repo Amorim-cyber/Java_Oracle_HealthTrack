@@ -1,22 +1,23 @@
 package br.com.healthTrack.entities;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Pressao {
 	
 	private Long idPressao;
 	private Double valorPressao;
-	private Date registroPressao;
+	private Calendar registroPressao;
 	private Long idUsuario;
 	
-	public Pressao(Long idPressao, Double valorPressao, Date registroPressao, Long idUsuario) {
+	public Pressao(Long idPressao, Double valorPressao, Calendar registroPressao, Long idUsuario) {
 		this.idPressao = idPressao;
 		this.valorPressao = valorPressao;
 		this.registroPressao = registroPressao;
 		this.idUsuario = idUsuario;
 	}
 	
-	public Pressao(Double valorPressao, Date registroPressao, Long idUsuario) {
+	public Pressao(Double valorPressao, Calendar registroPressao, Long idUsuario) {
 		this.valorPressao = valorPressao;
 		this.registroPressao = registroPressao;
 		this.idUsuario = idUsuario;
@@ -34,12 +35,15 @@ public class Pressao {
 	public void setValorPressao(Double valorPressao) {
 		this.valorPressao = valorPressao;
 	}
-	public Date getRegistroPressao() {
+	
+	public Calendar getRegistroPressao() {
 		return registroPressao;
 	}
-	public void setRegistroPressao(Date registroPressao) {
+
+	public void setRegistroPressao(Calendar registroPressao) {
 		this.registroPressao = registroPressao;
 	}
+
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
@@ -48,11 +52,13 @@ public class Pressao {
 	}
 	@Override
 	public String toString() {
-		return "Pressao [idPressao=" + idPressao + 
-				", valorPressao=" + valorPressao + 
-				", registroPressao=" + registroPressao + 
-				", idUsuario=" + idUsuario + 
-				"]";
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		return idPressao + 
+				"\t\t" + valorPressao + 
+				"\t\t" + registroPressao + 
+				"\t\t" + idUsuario + 
+				"\t\t" +
+				sdf.format(registroPressao.getTime());
 	}
 	
 	
