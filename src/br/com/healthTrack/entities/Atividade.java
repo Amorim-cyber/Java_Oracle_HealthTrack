@@ -1,5 +1,6 @@
 package br.com.healthTrack.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Atividade {
@@ -49,15 +50,14 @@ public class Atividade {
 		this.dataAtividade = dataAtividade;
 	}
 
-	@SuppressWarnings("static-access")
 	@Override
 	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		return idAtividade + 
 				"\t\t" + idUsuario + 
 				"\t\t" + idExercicio + 
 				"\t\t" + 
-				dataAtividade.DAY_OF_MONTH+"/"+dataAtividade.MONTH+"/"+dataAtividade.YEAR+" "+
-				dataAtividade.HOUR+":"+dataAtividade.MINUTE+":"+dataAtividade.SECOND;
+				sdf.format(dataAtividade.getTime());
 	}
 	
 	
