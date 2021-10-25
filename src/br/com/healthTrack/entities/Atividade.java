@@ -49,12 +49,15 @@ public class Atividade {
 		this.dataAtividade = dataAtividade;
 	}
 
+	@SuppressWarnings("static-access")
 	@Override
 	public String toString() {
 		return idAtividade + 
-				"\t" + idUsuario + 
-				"\t" + idExercicio + 
-				"\t" + dataAtividade;
+				"\t\t" + idUsuario + 
+				"\t\t" + idExercicio + 
+				"\t\t" + 
+				dataAtividade.DAY_OF_MONTH+"/"+dataAtividade.MONTH+"/"+dataAtividade.YEAR+" "+
+				dataAtividade.HOUR+":"+dataAtividade.MINUTE+":"+dataAtividade.SECOND;
 	}
 	
 	
