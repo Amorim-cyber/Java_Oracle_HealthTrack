@@ -54,10 +54,9 @@ public class Pressao {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		return idPressao + 
-				"\t\t" + valorPressao + 
-				"\t\t" + registroPressao + 
-				"\t\t" + idUsuario + 
-				"\t\t" +
+				"\t\t" + idUsuario +
+				"\t\t\t" + valorPressao + 
+				"\t\t\t" +
 				sdf.format(registroPressao.getTime());
 	}
 	

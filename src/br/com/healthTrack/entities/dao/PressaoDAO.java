@@ -31,7 +31,7 @@ public class PressaoDAO implements InterfacePressao{
 			while(rs.next()) {
 				Long idPressao = rs.getLong("ID_HIST_PRESSAO");
 				Long idUsuario = rs.getLong("T_USUARIO_ID_USUARIO");
-				Double valorPressao = rs.getDouble("NT_VALOR_PRESSAO");
+				Double valorPressao = rs.getDouble("NR_VALOR_PRESSAO");
 				Date datePressao = rs.getDate("DT_REGISTRO_PRESSAO");
 				
 				Calendar data = Calendar.getInstance();
@@ -54,7 +54,7 @@ public class PressaoDAO implements InterfacePressao{
 			}
 		}
 		
-		System.out.println("ID_HIST_PRESSAO\tT_USUARIO_ID_USUARIO\tNT_VALOR_PRESSAO\tDT_REGISTRO_PRESSAO");
+		System.out.println("ID_HIST_PRESSAO\tT_USUARIO_ID_USUARIO\tNR_VALOR_PRESSAO\tDT_REGISTRO_PRESSAO");
 		
 		for(Pressao registro:listaPressao) {
 			System.out.println(registro);
@@ -72,7 +72,7 @@ public class PressaoDAO implements InterfacePressao{
 			conexao= DBManager.obterConexao();
 			
 			String sql = "INSERT INTO T_HIST_PRESSAO (ID_HIST_PRESSAO,T_USUARIO_ID_USUARIO,\r\n"
-					+ "T_HIST_PRESSAO,DT_REGISTRO_PRESSAO) \r\n"
+					+ "NR_VALOR_PRESSAO,DT_REGISTRO_PRESSAO) \r\n"
 					+ "VALUES (PRESSAO_SEQ.NEXTVAL,?,?,?)";
 			
 			stmt= conexao.prepareStatement(sql);
