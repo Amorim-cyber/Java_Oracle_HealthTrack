@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.healthTrack.dbConnection.DBManager;
@@ -33,7 +34,11 @@ public class AtividadeDAO implements InterfaceAtividade{
 				Long idExercicio = rs.getLong("T_EXERCICIO_ID_EXERCICIO");
 				Date dateAtividade = rs.getDate("DT_ATIVIDADE");
 				
-				Atividade atividade = new Atividade(idAtividade,idUsuario,idExercicio,dateAtividade);
+				Calendar data = Calendar.getInstance();
+				
+				data.setTimeInMillis(dateAtividade.getTime());
+				
+				Atividade atividade = new Atividade(idAtividade,idUsuario,idExercicio,data);
 				listaAtividades.add(atividade);
 			}
 			
@@ -59,7 +64,7 @@ public class AtividadeDAO implements InterfaceAtividade{
 	}
 
 	@Override
-	public void insert(Long idUsuario, Long idExercicio, Date dataAtividade) {
+	public void insert(Long idUsuario, Long idExercicio, Calendar dataAtividade) {
 		
 		PreparedStatement stmt= null;
 		Atividade atividade = new Atividade(idUsuario,idExercicio,dataAtividade);
@@ -74,7 +79,10 @@ public class AtividadeDAO implements InterfaceAtividade{
 			stmt= conexao.prepareStatement(sql);
 			stmt.setLong(1, atividade.getIdUsuario());
 			stmt.setLong(2, atividade.getIdExercicio());
-			stmt.setDate(3, atividade.getDataAtividade());
+			
+			Date data = new Date(atividade.getDataAtividade().getTimeInMillis());
+			
+			stmt.setDate(3, data);
 			
 			stmt.executeUpdate();
 			
@@ -83,7 +91,8 @@ public class AtividadeDAO implements InterfaceAtividade{
 			e.printStackTrace();
 		}finally{
 			try{
-				stmt.close();conexao.close();
+				stmt.close();
+				conexao.close();
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
