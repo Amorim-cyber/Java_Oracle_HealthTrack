@@ -63,10 +63,10 @@ public class Alimento {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		return idAlimento + 
+				"\t\t" + idUsuario +
 				"\t\t" + nomeAlimento + 
 				"\t\t" + caloriasAlimento + 
-				"\t\t\t" + sdf.format(horaConsumo.getTime()) + 
-				"\t\t\t" + idUsuario;
+				"\t\t" + sdf.format(horaConsumo.getTime());
 	}
 	
 	
