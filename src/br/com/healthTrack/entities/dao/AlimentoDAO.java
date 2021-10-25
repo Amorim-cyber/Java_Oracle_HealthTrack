@@ -31,9 +31,9 @@ public class AlimentoDAO implements InterfaceAlimento{
 			while(rs.next()) {
 				Long idAlimento = rs.getLong("ID_ALIMENTO");
 				Long idUsuario = rs.getLong("T_USUARIO_ID_USUARIO");
-				String nmAlimentos = rs.getString("NM_ALIMENTOS");
-				Double nrCaloriasAlimetos = rs.getDouble("NR_CALORIAS_ALIMENTOS");
-				Date hrConsumo = rs.getDate("HR_CONSUMO");
+				String nmAlimentos = rs.getString("NM_ALIMENTO");
+				Double nrCaloriasAlimetos = rs.getDouble("NR_CALORIAS_ALIMENTO");
+				Date hrConsumo = rs.getDate("HR_CONSUMO_ALIMENTO");
 				
 				Calendar data = Calendar.getInstance();
 				
@@ -76,19 +76,17 @@ public class AlimentoDAO implements InterfaceAlimento{
 			conexao= DBManager.obterConexao();
 			
 			String sql = "INSERT INTO T_ALIMENTO (ID_ALIMENTO,T_USUARIO_ID_USUARIO,\r\n"
-					+ "NM_ALIMENTOS, NR_CALORIAS_ALIMENTOS, HR_CONSUMO) \r\n"
+					+ "NM_ALIMENTO, NR_CALORIAS_ALIMENTO, HR_CONSUMO_ALIMENTO) \r\n"
 					+ "VALUES (ALIMENTO_SEQ.NEXTVAL,?,?,?,?)";
-			
+			System.out.println("passo1");
 			stmt= conexao.prepareStatement(sql);
 			stmt.setLong(1, alimento.getIdUsuario());
 			stmt.setString(2, alimento.getNomeAlimento());
 			stmt.setDouble(3, alimento.getCaloriasAlimento());
 			Date data = new Date(alimento.getHoraConsumo().getTimeInMillis());
-			
 			stmt.setDate(4, data);
 						
 			stmt.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
