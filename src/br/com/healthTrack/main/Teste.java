@@ -34,6 +34,8 @@ public class Teste {
 					atividadeDAO.insert(2l, 3l, Calendar.getInstance());
 					atividadeDAO.insert(1l, 1l, Calendar.getInstance());
 					atividadeDAO.insert(1l, 3l, Calendar.getInstance());
+					System.out.println("Linhas adicionadas com sucesso !!!");
+					System.out.println();
 					break;
 				}
 				
@@ -47,9 +49,12 @@ public class Teste {
 				
 				case "3":{
 					loop = false;
+					System.out.println();
+					break;
 				}
 				default:{
 					System.out.println("ERRO - COMANDO INCORRETO !!");
+					System.out.println();
 				}
 			
 			}
