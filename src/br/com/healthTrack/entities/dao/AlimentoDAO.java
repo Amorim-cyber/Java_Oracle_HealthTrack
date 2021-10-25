@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.healthTrack.dbConnection.DBManager;
@@ -34,7 +35,11 @@ public class AlimentoDAO implements InterfaceAlimento{
 				Double nrCaloriasAlimetos = rs.getDouble("NR_CALORIAS_ALIMENTOS");
 				Date hrConsumo = rs.getDate("HR_CONSUMO");
 				
-				Alimento alimento = new Alimento(idAlimento,nmAlimentos,nrCaloriasAlimetos,hrConsumo,idUsuario);
+				Calendar data = Calendar.getInstance();
+				
+				data.setTimeInMillis(hrConsumo.getTime());
+				
+				Alimento alimento = new Alimento(idAlimento,nmAlimentos,nrCaloriasAlimetos,data,idUsuario);
 				listaAlimentos.add(alimento);
 			}
 			
@@ -50,11 +55,19 @@ public class AlimentoDAO implements InterfaceAlimento{
 				e.printStackTrace();
 			}
 		}
+		
+		
+		System.out.println("ID_ALIMENTO\tT_USUARIO_ID_USUARIO\tNM_ALIMENTOS\tNR_CALORIAS_ALIMENTOS\tHR_CONSUMO");
+		
+		for(Alimento registro:listaAlimentos) {
+			System.out.println(registro);
+		}
+		
 	}
 	
 	
 	@Override
-	public void insert(String nomeAlimento, Double caloriasAlimento, Date horaConsumo, Long idUsuario) {
+	public void insert(String nomeAlimento, Double caloriasAlimento, Calendar horaConsumo, Long idUsuario) {
 		
 		PreparedStatement stmt= null;
 		Alimento alimento = new Alimento(nomeAlimento, caloriasAlimento, horaConsumo, idUsuario);
@@ -64,12 +77,15 @@ public class AlimentoDAO implements InterfaceAlimento{
 			
 			String sql = "INSERT INTO T_ALIMENTO (ID_ALIMENTO,T_USUARIO_ID_USUARIO,\r\n"
 					+ "NM_ALIMENTOS, NR_CALORIAS_ALIMENTOS, HR_CONSUMO) \r\n"
-					+ "VALUES (ALIMENTO_SEQ.NEXTVAL,?,?,?)";
+					+ "VALUES (ALIMENTO_SEQ.NEXTVAL,?,?,?,?)";
 			
 			stmt= conexao.prepareStatement(sql);
 			stmt.setLong(1, alimento.getIdUsuario());
-			stmt.setLong(2, alimento.getIdAlimento());
-			stmt.setDate(3, alimento.getHoraConsumo());
+			stmt.setString(2, alimento.getNomeAlimento());
+			stmt.setDouble(3, alimento.getCaloriasAlimento());
+			Date data = new Date(alimento.getHoraConsumo().getTimeInMillis());
+			
+			stmt.setDate(4, data);
 						
 			stmt.executeUpdate();
 			
