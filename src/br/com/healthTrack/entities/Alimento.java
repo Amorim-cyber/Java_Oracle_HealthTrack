@@ -1,16 +1,17 @@
 package br.com.healthTrack.entities;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Alimento {
 	
 	private Long idAlimento;
 	private String nomeAlimento;
 	private Double caloriasAlimento;
-	private Date horaConsumo;
+	private Calendar horaConsumo;
 	private Long idUsuario;
 	
-	public Alimento(Long idAlimento, String nomeAlimento, Double caloriasAlimento, Date horaConsumo, Long idUsuario) {
+	public Alimento(Long idAlimento, String nomeAlimento, Double caloriasAlimento, Calendar horaConsumo, Long idUsuario) {
 		this.idAlimento = idAlimento;
 		this.nomeAlimento = nomeAlimento;
 		this.caloriasAlimento = caloriasAlimento;
@@ -18,7 +19,7 @@ public class Alimento {
 		this.idUsuario = idUsuario;
 	}
 	
-	public Alimento(String nomeAlimento, Double caloriasAlimento, Date horaConsumo, Long idUsuario) {
+	public Alimento(String nomeAlimento, Double caloriasAlimento, Calendar horaConsumo, Long idUsuario) {
 		this.nomeAlimento = nomeAlimento;
 		this.caloriasAlimento = caloriasAlimento;
 		this.horaConsumo = horaConsumo;
@@ -43,12 +44,15 @@ public class Alimento {
 	public void setCaloriasAlimento(Double caloriasAlimento) {
 		this.caloriasAlimento = caloriasAlimento;
 	}
-	public Date getHoraConsumo() {
+	
+	public Calendar getHoraConsumo() {
 		return horaConsumo;
 	}
-	public void setHoraConsumo(Date horaConsumo) {
+
+	public void setHoraConsumo(Calendar horaConsumo) {
 		this.horaConsumo = horaConsumo;
 	}
+
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
@@ -57,12 +61,12 @@ public class Alimento {
 	}
 	@Override
 	public String toString() {
-		return "Alimento [idAlimento=" + idAlimento + 
-				", nomeAlimento=" + nomeAlimento + 
-				", caloriasAlimento=" + caloriasAlimento + 
-				", horaConsumo=" + horaConsumo + 
-				", idUsuario=" + idUsuario + 
-				"]";
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		return idAlimento + 
+				"\t\t" + nomeAlimento + 
+				"\t\t" + caloriasAlimento + 
+				"\t\t\t" + sdf.format(horaConsumo.getTime()) + 
+				"\t\t\t" + idUsuario;
 	}
 	
 	
