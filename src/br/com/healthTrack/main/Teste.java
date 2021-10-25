@@ -3,6 +3,7 @@ package br.com.healthTrack.main;
 import java.util.Calendar;
 import java.util.Scanner;
 
+import br.com.healthTrack.entities.dao.AlimentoDAO;
 import br.com.healthTrack.entities.dao.AtividadeDAO;
 import br.com.healthTrack.entities.dao.PressaoDAO;
 
@@ -23,7 +24,9 @@ public class Teste {
 			System.out.println("Digite 2 para visualizar registros de atividade");
 			System.out.println("Digite 3 para fazer 5 registros de pressão");
 			System.out.println("Digite 4 para visualizar registros de pressão");
-			System.out.println("Digite 5 para sair");
+			System.out.println("Digite 5 para fazer 5 registros de alimento");
+			System.out.println("Digite 6 para visualizar registros de alimento");
+			System.out.println("Digite 7 para sair");
 			System.out.println();
 			System.out.print(">>> ");
 			
@@ -71,6 +74,26 @@ public class Teste {
 				}
 				
 				case "5":{
+					AlimentoDAO alimentoDAO = new AlimentoDAO();
+					alimentoDAO.insert("Yogurt Grego 100g",120D, Calendar.getInstance(), 3l);
+					alimentoDAO.insert("Arroz e feijão 100g",151D, Calendar.getInstance(), 3l);
+					alimentoDAO.insert("Sopa de ervilha 100g",61D, Calendar.getInstance(), 3l);
+					alimentoDAO.insert("Sucrilhos 100g",369D, Calendar.getInstance(), 2l);
+					alimentoDAO.insert("Salmão grelhado 100g",171D, Calendar.getInstance(), 2l);
+					System.out.println("Linhas adicionadas com sucesso !!!");
+					System.out.println();
+					break;
+				}
+				
+				case "6":{
+					AlimentoDAO alimentoDAO = new AlimentoDAO();
+					System.out.println("--------------------REGISTRO DE ALIMENTO---------------------");
+					alimentoDAO.getAll();
+					System.out.println();
+					break;
+				}
+				
+				case "7":{
 					loop = false;
 					System.out.println();
 					break;
