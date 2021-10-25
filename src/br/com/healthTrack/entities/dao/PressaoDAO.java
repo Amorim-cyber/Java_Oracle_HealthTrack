@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.healthTrack.dbConnection.DBManager;
@@ -33,7 +34,11 @@ public class PressaoDAO implements InterfacePressao{
 				Double valorPressao = rs.getDouble("NT_VALOR_PRESSAO");
 				Date datePressao = rs.getDate("DT_REGISTRO_PRESSAO");
 				
-				Pressao pressao = new Pressao(idPressao,valorPressao,datePressao,idUsuario);
+				Calendar data = Calendar.getInstance();
+				
+				data.setTimeInMillis(datePressao.getTime());
+				
+				Pressao pressao = new Pressao(idPressao,valorPressao,data,idUsuario);
 				listaPressao.add(pressao);
 			}
 			
@@ -58,7 +63,7 @@ public class PressaoDAO implements InterfacePressao{
 	}
 
 	@Override
-	public void insert(Double valorPressao,Date registroPressao,Long idUsuario) {
+	public void insert(Double valorPressao,Calendar registroPressao,Long idUsuario) {
 		
 		PreparedStatement stmt= null;
 		Pressao pressao = new Pressao(valorPressao,registroPressao,idUsuario);
@@ -73,7 +78,10 @@ public class PressaoDAO implements InterfacePressao{
 			stmt= conexao.prepareStatement(sql);
 			stmt.setLong(1, pressao.getIdUsuario());
 			stmt.setDouble(2, pressao.getValorPressao());
-			stmt.setDate(3, pressao.getRegistroPressao());
+			
+			Date data = new Date(pressao.getRegistroPressao().getTimeInMillis());
+			
+			stmt.setDate(3, data);
 			
 			stmt.executeUpdate();
 			
