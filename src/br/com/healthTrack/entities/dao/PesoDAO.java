@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.healthTrack.dbConnection.DBManager;
@@ -32,8 +33,12 @@ public class PesoDAO implements InterfacePeso{
 				Long idUsuario = rs.getLong("T_USUARIO_ID_USUARIO");
 				Double valorPeso = rs.getDouble("NR_HIST_PESO");
 				Date datePeso = rs.getDate("DT_REGISTRO_PESO");
+				
+				Calendar data = Calendar.getInstance();
+				
+				data.setTimeInMillis(datePeso.getTime());
 
-				Peso peso = new Peso(idPeso,valorPeso,datePeso,idUsuario);
+				Peso peso = new Peso(idPeso,valorPeso,data,idUsuario);
 				listaPeso.add(peso);
 			}
 			
@@ -57,7 +62,7 @@ public class PesoDAO implements InterfacePeso{
 	}
 
 	@Override
-	public void insert(Double valorPeso, Date registroPeso, Long idUsuario) {
+	public void insert(Double valorPeso, Calendar registroPeso, Long idUsuario) {
 		PreparedStatement stmt= null;
 		Peso peso = new Peso(valorPeso,registroPeso,idUsuario);
 		
@@ -72,10 +77,9 @@ public class PesoDAO implements InterfacePeso{
 			stmt.setLong(1, peso.getIdUsuario());
 			stmt.setDouble(2, peso.getValorPeso());
 				
-			java.util.Date data = peso.getRegistroPeso();
-			java.sql.Date dataSql = new java.sql.Date(data.getTime());
+			Date data = new Date(peso.getRegistroPeso().getTimeInMillis());
 
-			stmt.setDate(3, dataSql);
+			stmt.setDate(3, data);
 			
 			stmt.executeUpdate();	
 			
