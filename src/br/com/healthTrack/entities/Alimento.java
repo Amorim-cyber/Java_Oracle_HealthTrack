@@ -62,11 +62,20 @@ public class Alimento {
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		
+		if(nomeAlimento.length()>14) {
+			return idAlimento + 
+					"\t\t" + idUsuario +
+					"\t\t\t" + nomeAlimento + 
+					"\t" + caloriasAlimento + 
+					"\t\t\t" + sdf.format(horaConsumo.getTime());
+		}
+		
 		return idAlimento + 
 				"\t\t" + idUsuario +
-				"\t\t" + nomeAlimento + 
+				"\t\t\t" + nomeAlimento + 
 				"\t\t" + caloriasAlimento + 
-				"\t\t" + sdf.format(horaConsumo.getTime());
+				"\t\t\t" + sdf.format(horaConsumo.getTime());
 	}
 	
 	

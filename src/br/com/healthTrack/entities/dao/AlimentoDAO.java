@@ -57,7 +57,7 @@ public class AlimentoDAO implements InterfaceAlimento{
 		}
 		
 		
-		System.out.println("ID_ALIMENTO\tT_USUARIO_ID_USUARIO\tNM_ALIMENTOS\tNR_CALORIAS_ALIMENTOS\tHR_CONSUMO");
+		System.out.println("ID_ALIMENTO\tT_USUARIO_ID_USUARIO\tNM_ALIMENTOS\t\tNR_CALORIAS_ALIMENTOS\tHR_CONSUMO");
 		
 		for(Alimento registro:listaAlimentos) {
 			System.out.println(registro);
