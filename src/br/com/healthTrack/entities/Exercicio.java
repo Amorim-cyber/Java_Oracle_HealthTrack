@@ -46,11 +46,10 @@ public class Exercicio {
 	}
 	@Override
 	public String toString() {
-		return "Exercicio [idExercicio=" + idExercicio + 
-				", nomeExercicio=" + nomeExercicio + 
-				", setsExercicio=" + setsExercicio + 
-				", repeticaoExercicio=" + repeticaoExercicio +
-				"]";
+		return idExercicio + 
+				"\t" + nomeExercicio + 
+				"\t" + setsExercicio + 
+				"\t" + repeticaoExercicio;
 	}
 	
 	
