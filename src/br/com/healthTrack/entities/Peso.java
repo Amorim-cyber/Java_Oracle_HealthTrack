@@ -55,8 +55,8 @@ public class Peso {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		return idPeso + 
 				"\t\t" + idUsuario + 
-				"\t\t" + valorPeso + 
-				"\t\t\t" + 
+				"\t\t\t" + valorPeso + 
+				"\t\t" + 
 				sdf.format(registroPeso.getTime());
 	}
 	
