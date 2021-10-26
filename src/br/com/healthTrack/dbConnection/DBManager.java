@@ -11,7 +11,7 @@ public class DBManager {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conexao = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1522:xe","system","oracle");
+			conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL","RM88633","220295");
 			
 		}catch(SQLException e) {
 			System.err.println("Não foi possível conectar no Banco deDados");
