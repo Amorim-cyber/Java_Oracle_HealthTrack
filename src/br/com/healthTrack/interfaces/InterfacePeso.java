@@ -1,11 +1,11 @@
 package br.com.healthTrack.interfaces;
 
-import java.sql.Date;
+import java.util.Calendar;
 
 public interface InterfacePeso {
 	
 	public abstract void getAll();
 	
-	public abstract void insert(Double valorPeso,Date registroPeso,Long idUsuario);
+	public abstract void insert(Double valorPeso,Calendar registroPeso,Long idUsuario);
 
 }
