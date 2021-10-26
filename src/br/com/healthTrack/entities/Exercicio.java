@@ -46,7 +46,7 @@ public class Exercicio {
 	}
 	@Override
 	public String toString() {
-		if(nomeExercicio.length()>25) {
+		if(nomeExercicio.length()>=25) {
 			return idExercicio + 
 					"\t" + nomeExercicio + 
 					"\t" + setsExercicio + 
