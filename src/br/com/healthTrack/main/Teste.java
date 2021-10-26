@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import br.com.healthTrack.entities.dao.AlimentoDAO;
 import br.com.healthTrack.entities.dao.AtividadeDAO;
+import br.com.healthTrack.entities.dao.PesoDAO;
 import br.com.healthTrack.entities.dao.PressaoDAO;
 
 public class Teste {
@@ -26,7 +27,9 @@ public class Teste {
 			System.out.println("Digite 4 para visualizar registros de pressão");
 			System.out.println("Digite 5 para fazer 5 registros de alimento");
 			System.out.println("Digite 6 para visualizar registros de alimento");
-			System.out.println("Digite 7 para sair");
+			System.out.println("Digite 7 para fazer 5 registros de peso");
+			System.out.println("Digite 8 para visualizar registros de peso");
+			System.out.println("Digite 9 para sair");
 			System.out.println();
 			System.out.print(">>> ");
 			
@@ -94,6 +97,26 @@ public class Teste {
 				}
 				
 				case "7":{
+					PesoDAO pesoDAO = new PesoDAO(); 
+					pesoDAO.insert(75.5D, Calendar.getInstance(), 2l);
+					pesoDAO.insert(73D, Calendar.getInstance(), 2l);
+					pesoDAO.insert(70D, Calendar.getInstance(), 2l);
+					pesoDAO.insert(100D, Calendar.getInstance(), 1l);
+					pesoDAO.insert(99D, Calendar.getInstance(), 1l);
+					System.out.println("Linhas adicionadas com sucesso !!!");
+					System.out.println();
+					break;
+				}
+				
+				case "8":{
+					PesoDAO pesoDAO = new PesoDAO();
+					System.out.println("--------------------REGISTRO DE PESO---------------------");
+					pesoDAO.getAll();
+					System.out.println();
+					break;
+				}
+				
+				case "9":{
 					loop = false;
 					System.out.println();
 					break;

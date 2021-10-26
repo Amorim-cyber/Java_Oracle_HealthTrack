@@ -70,7 +70,7 @@ public class PesoDAO implements InterfacePeso{
 			conexao= DBManager.obterConexao();
 			
 			String sql = "INSERT INTO T_HIST_PESO (ID_HIST_PESO,T_USUARIO_ID_USUARIO,\r\n"
-					+ "NR_HIST_PESO,tDT_REGISTRO_PESO) \r\n"
+					+ "NR_HIST_PESO,DT_REGISTRO_PESO) \r\n"
 					+ "VALUES (PESO_SEQ.NEXTVAL,?,?,?)";
 			
 			stmt= conexao.prepareStatement(sql);
