@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import br.com.healthTrack.entities.dao.AlimentoDAO;
 import br.com.healthTrack.entities.dao.AtividadeDAO;
+import br.com.healthTrack.entities.dao.ExercicioDAO;
 import br.com.healthTrack.entities.dao.PesoDAO;
 import br.com.healthTrack.entities.dao.PressaoDAO;
 
@@ -29,7 +30,9 @@ public class Teste {
 			System.out.println("Digite 6 para visualizar registros de alimento");
 			System.out.println("Digite 7 para fazer 5 registros de peso");
 			System.out.println("Digite 8 para visualizar registros de peso");
-			System.out.println("Digite 9 para sair");
+			System.out.println("Digite 9 para fazer 5 registros de exercicio");
+			System.out.println("Digite 10 para visualizar registros de exercicio");
+			System.out.println("Digite 11 para sair");
 			System.out.println();
 			System.out.print(">>> ");
 			
@@ -117,6 +120,26 @@ public class Teste {
 				}
 				
 				case "9":{
+					ExercicioDAO exercicioDAO = new ExercicioDAO();
+					exercicioDAO.insert("Tríceps Testa com Barra W", 3, 20);
+					exercicioDAO.insert("Kettlebell - Glúteos/Costas", 3, 12);
+					exercicioDAO.insert("Abdominal com bola", 3, 10);
+					exercicioDAO.insert("Agachamento livre com halteres", 4, 12);
+					exercicioDAO.insert("Supino Reto com Barra", 3, 10);
+					System.out.println("Linhas adicionadas com sucesso !!!");
+					System.out.println();
+					break;
+				}
+				
+				case "10":{
+					ExercicioDAO exercicioDAO = new ExercicioDAO();
+					System.out.println("--------------------REGISTRO DE EXERCICIO---------------------");
+					exercicioDAO.getAll();
+					System.out.println();
+					break;
+				}
+				
+				case "11":{
 					loop = false;
 					System.out.println();
 					break;
