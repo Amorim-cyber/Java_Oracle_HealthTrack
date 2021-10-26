@@ -78,7 +78,6 @@ public class AlimentoDAO implements InterfaceAlimento{
 			String sql = "INSERT INTO T_ALIMENTO (ID_ALIMENTO,T_USUARIO_ID_USUARIO,\r\n"
 					+ "NM_ALIMENTO, NR_CALORIAS_ALIMENTO, HR_CONSUMO_ALIMENTO) \r\n"
 					+ "VALUES (ALIMENTO_SEQ.NEXTVAL,?,?,?,?)";
-			System.out.println("passo1");
 			stmt= conexao.prepareStatement(sql);
 			stmt.setLong(1, alimento.getIdUsuario());
 			stmt.setString(2, alimento.getNomeAlimento());
