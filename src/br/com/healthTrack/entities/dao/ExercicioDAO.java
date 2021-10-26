@@ -49,7 +49,7 @@ public class ExercicioDAO implements InterfaceExercicio{
 			}
 		}
 		
-		System.out.println("ID\tNOME\tNUM_SETS\tNUM_REPETICAO");
+		System.out.println("ID\tNOME\t\t\t\tNUM_SETS\tNUM_REPETICAO");
 		
 		for(Exercicio registro:listaExercicios) {
 			System.out.println(registro);

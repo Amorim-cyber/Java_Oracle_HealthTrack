@@ -46,10 +46,16 @@ public class Exercicio {
 	}
 	@Override
 	public String toString() {
+		if(nomeExercicio.length()>=25) {
+			return idExercicio + 
+					"\t" + nomeExercicio + 
+					"\t" + setsExercicio + 
+					"\t\t" + repeticaoExercicio;
+		}
 		return idExercicio + 
 				"\t" + nomeExercicio + 
-				"\t" + setsExercicio + 
-				"\t" + repeticaoExercicio;
+				"\t\t" + setsExercicio + 
+				"\t\t" + repeticaoExercicio;
 	}
 	
 	
