@@ -1,22 +1,23 @@
 package br.com.healthTrack.entities;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Peso {
 	
 	private Long idPeso;
 	private Double valorPeso;
-	private Date registroPeso;
+	private Calendar registroPeso;
 	private Long idUsuario;
 	
-	public Peso(Long idPeso, Double valorPeso, Date registroPeso, Long idUsuario) {
+	public Peso(Long idPeso, Double valorPeso, Calendar registroPeso, Long idUsuario) {
 		this.idPeso = idPeso;
 		this.valorPeso = valorPeso;
 		this.registroPeso = registroPeso;
 		this.idUsuario = idUsuario;
 	}
 	
-	public Peso(Double valorPeso, Date registroPeso, Long idUsuario) {
+	public Peso(Double valorPeso, Calendar registroPeso, Long idUsuario) {
 		this.valorPeso = valorPeso;
 		this.registroPeso = registroPeso;
 		this.idUsuario = idUsuario;
@@ -34,12 +35,15 @@ public class Peso {
 	public void setValorPeso(Double valorPeso) {
 		this.valorPeso = valorPeso;
 	}
-	public Date getRegistroPeso() {
+	
+	public Calendar getRegistroPeso() {
 		return registroPeso;
 	}
-	public void setRegistroPeso(Date registroPeso) {
+
+	public void setRegistroPeso(Calendar registroPeso) {
 		this.registroPeso = registroPeso;
 	}
+
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
@@ -48,11 +52,12 @@ public class Peso {
 	}
 	@Override
 	public String toString() {
-		return "Peso [idPeso=" + idPeso + 
-				", valorPeso=" + valorPeso + 
-				", registroPeso=" + registroPeso + 
-				", idUsuario=" + idUsuario + 
-				"]";
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		return idPeso + 
+				"\t\t" + idUsuario + 
+				"\t\t" + valorPeso + 
+				"\t\t\t" + 
+				sdf.format(registroPeso.getTime());
 	}
 	
 	
